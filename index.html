@@ -43,6 +43,10 @@
       background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
       background-size: 20px 20px;
     }
+    .crop-watermark {
+      object-fit: cover;
+      object-position: center 8%;
+    }
   </style>
 </head>
 <body class="bg-grid text-slate-100 min-h-screen flex flex-col items-center justify-start pb-20">
@@ -186,25 +190,11 @@
       </p>
     </section>
 
-    <!-- Custom Graphic Section (Exact Uploaded Artwork Style) -->
-    <section class="bg-[#d90429] neo-card rounded-2xl p-6 text-center text-white space-y-4">
-      <div class="my-2 flex flex-col items-center justify-center space-y-1">
-        <div class="text-3xl tracking-widest">🌶️ 🌶️ 🌶️</div>
-        <div class="w-16 h-20 bg-amber-200 border-4 border-black rounded-full flex items-center justify-center shadow-md my-1">
-          <span class="text-2xl">🥚</span>
-        </div>
-        <div class="text-3xl tracking-widest">🌶️ 🌶️ 🌶️</div>
+    <!-- Final Slide: Exact User Uploaded Image (With Watermark Cropped) -->
+    <section class="neo-card rounded-2xl overflow-hidden bg-black">
+      <div class="w-full h-[480px] overflow-hidden relative">
+        <img src="https://i.ibb.co/3ykd573q/image.jpg" alt="Nazar Suraksha Kavach" class="w-full h-full crop-watermark">
       </div>
-
-      <h3 class="text-2xl md:text-3xl font-black uppercase tracking-wider text-yellow-300 drop-shadow-[0_2px_0_#000]">
-        NAZAR MAT LGAO
-      </h3>
-      <p class="serif-italic text-2xl md:text-3xl font-bold text-white tracking-wide">
-        gaand already
-      </p>
-      <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter text-yellow-400 drop-shadow-[0_3px_0_#000]">
-        PHATI HUI HAI
-      </h2>
     </section>
 
   </main>

@@ -99,9 +99,7 @@
         Pick your vibe color for the night.
       </p>
 
-      <div class="grid grid-cols-2 gap-3" id="fitGrid">
-        <!-- Fit Cards injected via JS -->
-      </div>
+      <div class="grid grid-cols-2 gap-3" id="fitGrid"></div>
     </section>
 
     <!-- SECTION 2: Pick Your Post -->
@@ -116,9 +114,7 @@
         Pick your official post for the party.
       </p>
 
-      <div class="grid grid-cols-2 gap-3" id="postGrid">
-        <!-- Crew Posts injected via JS -->
-      </div>
+      <div class="grid grid-cols-2 gap-3" id="postGrid"></div>
     </section>
 
     <!-- SECTION 3: RSVP Details -->
@@ -132,21 +128,52 @@
 
       <div>
         <label class="block text-xs font-black uppercase mb-1">Your Name *</label>
-        <input type="text" id="guestName" placeholder="Enter your full name" class="w-full p-3 bg-slate-100 border-2 border-black rounded-xl font-bold text-sm focus:outline-none focus:bg-yellow-100">
+        <input type="text" id="guestName" placeholder="Enter your full name" oninput="updateTicket()" class="w-full p-3 bg-slate-100 border-2 border-black rounded-xl font-bold text-sm focus:outline-none focus:bg-yellow-100">
       </div>
 
       <div>
-        <label class="block text-xs font-black uppercase mb-1">Are you coming?</label>
-        <select id="rsvpStatus" class="w-full p-3 bg-slate-100 border-2 border-black rounded-xl font-bold text-sm focus:outline-none">
-          <option value="Haan bhai, I'm in! 🎉">Haan bhai, I'm in! 🎉</option>
-          <option value="Shayad - Dekhte hain 🤔">Shayad - Dekhte hain 🤔</option>
-          <option value="Is baar nahi 😭">Is baar nahi 😭</option>
-        </select>
+        <label class="block text-xs font-black uppercase mb-1">Attendance Status</label>
+        <div class="w-full p-3 bg-emerald-100 border-2 border-black rounded-xl font-black text-sm text-emerald-900 uppercase">
+          Haan bhai, im definitely in 🎉
+        </div>
       </div>
 
       <div>
         <label class="block text-xs font-black uppercase mb-1">Note for Host (Optional)</label>
-        <input type="text" id="guestNote" placeholder="Desi khaana recommendations, extra vibe..." class="w-full p-3 bg-slate-100 border-2 border-black rounded-xl font-bold text-sm focus:outline-none focus:bg-yellow-100">
+        <input type="text" id="guestNote" placeholder="Desi khaana recommendations, extra vibe..." oninput="updateTicket()" class="w-full p-3 bg-slate-100 border-2 border-black rounded-xl font-bold text-sm focus:outline-none focus:bg-yellow-100">
+      </div>
+    </section>
+
+    <!-- SECTION 4: Generated Ticket Preview -->
+    <section class="bg-[#e63946] neo-card rounded-2xl p-6 text-white space-y-4">
+      <div class="bg-yellow-400 text-black neo-card inline-block px-3 py-1 rounded-full text-xs font-black uppercase">
+        Step 4
+      </div>
+      <h2 class="text-2xl font-black uppercase tracking-tight">
+        YOUR GUEST TICKET PREVIEW
+      </h2>
+
+      <div id="ticketPreview" class="bg-white text-black neo-card rounded-xl p-4 space-y-3 font-bold text-xs">
+        <div class="border-b-2 border-black pb-2 flex justify-between items-center">
+          <span class="text-gray-500 uppercase">Guest</span>
+          <span id="ticketName" class="font-extrabold text-sm uppercase text-red-600">[Enter Name Above]</span>
+        </div>
+        <div class="border-b-2 border-black pb-2 flex justify-between items-center">
+          <span class="text-gray-500 uppercase">Status</span>
+          <span class="font-extrabold">Haan bhai, im definitely in</span>
+        </div>
+        <div class="border-b-2 border-black pb-2 flex justify-between items-center">
+          <span class="text-gray-500 uppercase">Fit Vibe</span>
+          <span id="ticketFit" class="font-extrabold uppercase">LAAL TAMATAR</span>
+        </div>
+        <div class="border-b-2 border-black pb-2 flex justify-between items-center">
+          <span class="text-gray-500 uppercase">Crew Post</span>
+          <span id="ticketPost" class="font-extrabold uppercase">Chakna Champion</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-gray-500 uppercase">Note</span>
+          <span id="ticketNote" class="font-extrabold text-right max-w-[200px] truncate">None</span>
+        </div>
       </div>
 
       <!-- WhatsApp Trigger Button -->
@@ -154,24 +181,19 @@
         <span>DEAL ME IN ON WHATSAPP</span>
         <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
       </button>
-      <p class="text-[10px] text-center font-bold text-slate-500 uppercase">
-        Opens WhatsApp with your details pre-filled to send directly back to the host!
+      <p class="text-[10px] text-center font-bold text-white uppercase opacity-90">
+        Sends your compiled ticket straight back to the host on WhatsApp!
       </p>
     </section>
 
-    <!-- Custom Graphic Section (Cropped Graphic) -->
+    <!-- Custom Graphic Section (Exact Uploaded Artwork Style) -->
     <section class="bg-[#d90429] neo-card rounded-2xl p-6 text-center text-white space-y-4">
-      <div class="inline-block bg-yellow-400 text-black font-black text-xs px-3 py-1 rounded-full uppercase border-2 border-black">
-        Nazar Suraksha Kavach
-      </div>
-      
-      <!-- Vector artwork representation -->
-      <div class="my-4 flex flex-col items-center justify-center space-y-2">
-        <div class="text-4xl">🌶️ 🌶️ 🌶️</div>
-        <div class="w-16 h-20 bg-amber-200 border-4 border-black rounded-full flex items-center justify-center shadow-md">
+      <div class="my-2 flex flex-col items-center justify-center space-y-1">
+        <div class="text-3xl tracking-widest">🌶️ 🌶️ 🌶️</div>
+        <div class="w-16 h-20 bg-amber-200 border-4 border-black rounded-full flex items-center justify-center shadow-md my-1">
           <span class="text-2xl">🥚</span>
         </div>
-        <div class="text-4xl">🌶️ 🌶️ 🌶️</div>
+        <div class="text-3xl tracking-widest">🌶️ 🌶️ 🌶️</div>
       </div>
 
       <h3 class="text-2xl md:text-3xl font-black uppercase tracking-wider text-yellow-300 drop-shadow-[0_2px_0_#000]">
@@ -198,14 +220,11 @@
     ];
 
     const crewPosts = [
-      { id: "Chakna Champion", name: "Chakna Champion", desc: "Brings snacks for the gang" },
+      { id: "Chakna Champion", name: "Chakna Champion", desc: "Brings one snack for the gang" },
       { id: "Bartender", name: "Bartender", desc: "Mixes the drinks" },
       { id: "Game Master", name: "Game Master", desc: "Helps run the games" },
-      { id: "Desi Khaana", name: "Desi Khaana", desc: "In-charge of food vibes" },
-      { id: "DJ Saab", name: "DJ Saab", desc: "Playlist in-charge" },
-      { id: "Decor Paglu", name: "Decor Paglu", desc: "Lights & aesthetics" },
-      { id: "Hype Machine", name: "Hype Machine", desc: "Gets everyone hyped" },
-      { id: "Chief Guest", name: "Chief Guest", desc: "Here purely to vibe" }
+      { id: "Desi Khaana", name: "Desi Khaana", desc: "In-charge of desi food vibes" },
+      { id: "Mixer King", name: "Mixer King", desc: "Brings the mixers to the party for alcohol" }
     ];
 
     let selectedFit = fitOptions[0].name;
@@ -213,7 +232,7 @@
 
     function renderFits() {
       const grid = document.getElementById('fitGrid');
-      grid.innerHTML = fitOptions.map((fit, idx) => `
+      grid.innerHTML = fitOptions.map((fit) => `
         <div onclick="selectFit('${fit.name}')" class="neo-card p-3 rounded-xl cursor-pointer ${fit.color} ${selectedFit === fit.name ? 'selected-card' : ''}">
           <div class="font-black text-xs md:text-sm uppercase">${fit.name}</div>
           <div class="text-[10px] font-bold opacity-90 leading-tight mt-1">${fit.desc}</div>
@@ -234,26 +253,38 @@
     function selectFit(name) {
       selectedFit = name;
       renderFits();
+      updateTicket();
     }
 
     function selectPost(name) {
       selectedPost = name;
       renderPosts();
+      updateTicket();
+    }
+
+    function updateTicket() {
+      const name = document.getElementById('guestName').value.trim();
+      const note = document.getElementById('guestNote').value.trim();
+
+      document.getElementById('ticketName').innerText = name || "[Enter Name Above]";
+      document.getElementById('ticketFit').innerText = selectedFit;
+      document.getElementById('ticketPost').innerText = selectedPost;
+      document.getElementById('ticketNote').innerText = note || "None";
     }
 
     function sendToWhatsApp() {
       const name = document.getElementById('guestName').value.trim();
-      const status = document.getElementById('rsvpStatus').value;
       const note = document.getElementById('guestNote').value.trim();
 
       if (!name) {
-        alert("Please enter your name before RSVPing!");
+        alert("Please enter your name before sending your ticket!");
+        document.getElementById('guestName').focus();
         return;
       }
 
-      const text = `🎉 *DIWALI PARTY RSVP* 🎉\n\n` +
+      const text = `🎟️ *DIWALI PARTY GUEST TICKET* 🎟️\n\n` +
                    `👤 *Name:* ${name}\n` +
-                   `✅ *Status:* ${status}\n` +
+                   `✅ *Status:* Haan bhai, im definitely in\n` +
                    `🎨 *Fit Code:* ${selectedFit}\n` +
                    `🛠️ *Crew Post:* ${selectedPost}\n` +
                    `📝 *Note:* ${note || "None"}\n\n` +
@@ -261,14 +292,13 @@
                    `🍺 *BYOB Event*\n` +
                    `📍 *Venue:* https://www.airbnb.co.uk/rooms/1688430031887807696`;
 
-      // Direct WhatsApp API URL without a preset recipient number so it responds directly to whoever sent the link
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
       window.open(whatsappUrl, '_blank');
     }
 
-    // Initial Render
     renderFits();
     renderPosts();
+    updateTicket();
   </script>
 </body>
 </html>

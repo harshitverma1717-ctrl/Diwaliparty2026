@@ -106,22 +106,76 @@
       <div class="grid grid-cols-2 gap-3" id="fitGrid"></div>
     </section>
 
-    <!-- SECTION 2: Pick Your Post -->
+    <!-- SECTION 2: Food Preference Selection -->
     <section class="bg-[#f1faee] neo-card rounded-2xl p-6 text-black">
       <div class="bg-[#e63946] text-white neo-card inline-block px-3 py-1 rounded-full text-xs font-black uppercase mb-2">
         Step 2
       </div>
       <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight mb-1">
-        EVERY PARTY NEEDS A CREW
+        KHAANA PREFERENCE
       </h2>
       <p class="font-bold text-xs mb-4 text-slate-700">
-        Pick your official post for the party.
+        Are you rolling with Veg or Non-Veg?
       </p>
 
-      <div class="grid grid-cols-2 gap-3" id="postGrid"></div>
+      <div class="grid grid-cols-2 gap-3" id="foodGrid"></div>
     </section>
 
-    <!-- SECTION 3: RSVP Details -->
+    <!-- SECTION 3: The Menu (Segregated with Punchlines) -->
+    <section class="bg-[#ffb703] neo-card rounded-2xl p-6 text-black space-y-4">
+      <div class="bg-black text-white neo-card inline-block px-3 py-1 rounded-full text-xs font-black uppercase">
+        The Spread
+      </div>
+      <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight">
+        DESI KHAAANA & CHAKNA MENU
+      </h2>
+      <p class="font-bold text-xs text-slate-900 italic">
+        "Dieting starts tomorrow. Tonight, we feast like royalty."
+      </p>
+
+      <!-- Munchies -->
+      <div class="bg-white neo-card rounded-xl p-4 space-y-2">
+        <h3 class="font-black uppercase text-sm text-red-600 border-b-2 border-black pb-1 flex justify-between">
+          <span>🍿 Munchies & Chakhna</span>
+          <span class="text-xs text-slate-500">Fuel for the drinks</span>
+        </h3>
+        <ul class="font-bold text-xs space-y-1 text-slate-800">
+          <li>• Peanuts <span class="text-slate-500 font-normal">— Drink ka pakka sathi</span></li>
+          <li>• Choki Choki <span class="text-slate-500 font-normal">— Bachpan ka nostalgia, adult energy</span></li>
+        </ul>
+      </div>
+
+      <!-- Snacks & Street Food -->
+      <div class="bg-white neo-card rounded-xl p-4 space-y-2">
+        <h3 class="font-black uppercase text-sm text-red-600 border-b-2 border-black pb-1 flex justify-between">
+          <span>pani 🥟 Snacks & Street Food</span>
+          <span class="text-xs text-slate-500">The masala section</span>
+        </h3>
+        <ul class="font-bold text-xs space-y-1 text-slate-800">
+          <li>• Welcome Drinks <span class="text-slate-500 font-normal">— Ice-cold entry kick</span></li>
+          <li>• Bhelpuri <span class="text-slate-500 font-normal">— Shشور-sharaaba & crunch</span></li>
+          <li>• Nachos <span class="text-slate-500 font-normal">— Desi soul, global bowl</span></li>
+          <li>• Kurkure Chaat <span class="text-slate-500 font-normal">— Ultimate spicy destruction</span></li>
+          <li>• Pani Puri <span class="text-slate-500 font-normal">— Paani kam, maza zyada</span></li>
+          <li>• Papdi Chaat <span class="text-slate-500 font-normal">— Khatta, meetha, lethal</span></li>
+        </ul>
+      </div>
+
+      <!-- Main Course -->
+      <div class="bg-white neo-card rounded-xl p-4 space-y-2">
+        <h3 class="font-black uppercase text-sm text-red-600 border-b-2 border-black pb-1 flex justify-between">
+          <span>🍛 Main Course</span>
+          <span class="text-xs text-slate-500">Heavy hitters only</span>
+        </h3>
+        <ul class="font-bold text-xs space-y-1 text-slate-800">
+          <li>• Paneer Chilli Fried Rice <span class="text-slate-500 font-normal">— Wok-tossed perfection</span></li>
+          <li>• Biriyani <span class="text-slate-500 font-normal">— Rishton ki gehraayi aur dumdaar taste</span></li>
+          <li>• White Sponge <span class="text-slate-500 font-normal">— Sweet ending to sweet chaos</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 4: RSVP Details -->
     <section class="bg-white neo-card rounded-2xl p-6 text-black space-y-4">
       <div class="bg-[#ffb703] neo-card inline-block px-3 py-1 rounded-full text-xs font-black uppercase">
         Step 3
@@ -144,17 +198,17 @@
 
       <div>
         <label class="block text-xs font-black uppercase mb-1">Note for Host (Optional)</label>
-        <input type="text" id="guestNote" placeholder="Desi khaana recommendations, extra vibe..." oninput="updateTicket()" class="w-full p-3 bg-slate-100 border-2 border-black rounded-xl font-bold text-sm focus:outline-none focus:bg-yellow-100">
+        <input type="text" id="guestNote" placeholder="Extra ice, dietary notes..." oninput="updateTicket()" class="w-full p-3 bg-slate-100 border-2 border-black rounded-xl font-bold text-sm focus:outline-none focus:bg-yellow-100">
       </div>
     </section>
 
-    <!-- SECTION 4: Generated Ticket Preview -->
+    <!-- SECTION 5: Ticket Preview & Payment / WhatsApp Group -->
     <section class="bg-[#e63946] neo-card rounded-2xl p-6 text-white space-y-4">
       <div class="bg-yellow-400 text-black neo-card inline-block px-3 py-1 rounded-full text-xs font-black uppercase">
         Step 4
       </div>
       <h2 class="text-2xl font-black uppercase tracking-tight">
-        YOUR GUEST TICKET PREVIEW
+        FINAL TICKET & ENTRY PASS
       </h2>
 
       <div id="ticketPreview" class="bg-white text-black neo-card rounded-xl p-4 space-y-3 font-bold text-xs">
@@ -171,8 +225,8 @@
           <span id="ticketFit" class="font-extrabold uppercase">LAAL TAMATAR</span>
         </div>
         <div class="border-b-2 border-black pb-2 flex justify-between items-center">
-          <span class="text-gray-500 uppercase">Crew Post</span>
-          <span id="ticketPost" class="font-extrabold uppercase">Chakna Champion</span>
+          <span class="text-gray-500 uppercase">Food Choice</span>
+          <span id="ticketFood" class="font-extrabold uppercase">VEG</span>
         </div>
         <div class="flex justify-between items-center">
           <span class="text-gray-500 uppercase">Note</span>
@@ -180,17 +234,27 @@
         </div>
       </div>
 
+      <!-- QR Code Payment / Group Entry Simulation Box -->
+      <div class="bg-white text-black neo-card rounded-xl p-5 text-center space-y-3">
+        <h3 class="font-black uppercase text-sm">SCAN QR TO PAY & JOIN WHATSAPP GROUP</h3>
+        <p class="text-[11px] font-bold text-slate-600">Scan via any UPI app to settle up. Post-payment, you'll instantly land into the official party WhatsApp group!</p>
+        
+        <!-- Placeholder QR Box (Replace src with your actual payment QR image link if you want) -->
+        <div class="w-40 h-40 mx-auto bg-slate-100 border-4 border-black rounded-xl flex items-center justify-center p-2">
+          <div class="text-center font-black text-xs text-red-600 border-2 border-dashed border-black p-4 w-full h-full flex items-center justify-center">
+            [YOUR PAYMENT QR CODE IMAGE]
+          </div>
+        </div>
+      </div>
+
       <!-- WhatsApp Trigger Button -->
       <button onclick="sendToWhatsApp()" class="w-full bg-[#25D366] text-black font-black text-base md:text-lg p-4 rounded-xl neo-box uppercase tracking-wider flex items-center justify-center gap-2">
-        <span>DEAL ME IN ON WHATSAPP</span>
+        <span>SEND TICKET & JOIN WHATSAPP</span>
         <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
       </button>
-      <p class="text-[10px] text-center font-bold text-white uppercase opacity-90">
-        Sends your compiled ticket straight back to the host on WhatsApp!
-      </p>
     </section>
 
-    <!-- Final Slide: Full Uncropped Image Display -->
+    <!-- Final Slide: Uncropped Image Display -->
     <section class="neo-card rounded-2xl overflow-hidden bg-black">
       <div class="w-full h-[520px] flex items-center justify-center bg-[#d90429]">
         <img src="IMG_7616.jpeg" alt="Nazar Suraksha Kavach" class="w-full h-full full-image">
@@ -209,16 +273,13 @@
       { name: "KESARI VIBE", desc: "Saffron Orange • Desi drip", color: "bg-orange-500 text-white" }
     ];
 
-    const crewPosts = [
-      { id: "Chakna Champion", name: "Chakna Champion", desc: "Brings one snack for the gang" },
-      { id: "Bartender", name: "Bartender", desc: "Mixes the drinks" },
-      { id: "Game Master", name: "Game Master", desc: "Helps run the games" },
-      { id: "Desi Khaana", name: "Desi Khaana", desc: "In-charge of desi food vibes" },
-      { id: "Mixer King", name: "Mixer King", desc: "Brings the mixers to the party for alcohol" }
+    const foodOptions = [
+      { id: "Veg", name: "VEG PURE", desc: "Paneer, Bhelpuri & Desi Feasts" },
+      { id: "Non-Veg", name: "NON-VEG", desc: "Biryani & Full Meat Energy" }
     ];
 
     let selectedFit = fitOptions[0].name;
-    let selectedPost = crewPosts[0].name;
+    let selectedFood = foodOptions[0].name;
 
     function renderFits() {
       const grid = document.getElementById('fitGrid');
@@ -230,12 +291,12 @@
       `).join('');
     }
 
-    function renderPosts() {
-      const grid = document.getElementById('postGrid');
-      grid.innerHTML = crewPosts.map((post) => `
-        <div onclick="selectPost('${post.name}')" class="neo-card p-3 rounded-xl cursor-pointer bg-white text-black ${selectedPost === post.name ? 'selected-card bg-yellow-200' : ''}">
-          <div class="font-black text-xs md:text-sm uppercase">${post.name}</div>
-          <div class="text-[10px] font-bold text-slate-600 leading-tight mt-1">${post.desc}</div>
+    function renderFood() {
+      const grid = document.getElementById('foodGrid');
+      grid.innerHTML = foodOptions.map((food) => `
+        <div onclick="selectFood('${food.name}')" class="neo-card p-3 rounded-xl cursor-pointer bg-white text-black ${selectedFood === food.name ? 'selected-card bg-yellow-200' : ''}">
+          <div class="font-black text-xs md:text-sm uppercase">${food.name}</div>
+          <div class="text-[10px] font-bold text-slate-600 leading-tight mt-1">${food.desc}</div>
         </div>
       `).join('');
     }
@@ -246,9 +307,9 @@
       updateTicket();
     }
 
-    function selectPost(name) {
-      selectedPost = name;
-      renderPosts();
+    function selectFood(name) {
+      selectedFood = name;
+      renderFood();
       updateTicket();
     }
 
@@ -258,7 +319,7 @@
 
       document.getElementById('ticketName').innerText = name || "[Enter Name Above]";
       document.getElementById('ticketFit').innerText = selectedFit;
-      document.getElementById('ticketPost').innerText = selectedPost;
+      document.getElementById('ticketFood').innerText = selectedFood;
       document.getElementById('ticketNote').innerText = note || "None";
     }
 
@@ -276,7 +337,7 @@
                    `👤 *Name:* ${name}\n` +
                    `✅ *Status:* Haan bhai, im definitely in\n` +
                    `🎨 *Fit Code:* ${selectedFit}\n` +
-                   `🛠️ *Crew Post:* ${selectedPost}\n` +
+                   `🍲 *Food Pref:* ${selectedFood}\n` +
                    `📝 *Note:* ${note || "None"}\n\n` +
                    `📅 *Date:* 4th Nov 2026, 4 PM\n` +
                    `🍺 *BYOB Event*\n` +
@@ -287,7 +348,7 @@
     }
 
     renderFits();
-    renderPosts();
+    renderFood();
     updateTicket();
   </script>
 </body>

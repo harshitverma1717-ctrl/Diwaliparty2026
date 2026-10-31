@@ -86,7 +86,7 @@
         </div>
         <div class="flex justify-between items-center">
           <span class="font-bold text-xs uppercase">Venue</span>
-          <a href="https://www.airbnb.co.uk/rooms/1688430031887807696?unique_share_id=23b91a15-731f-400d-a304-75450c62a8f8&viralityEntryPoint=1&s=76" target="_blank" class="font-extrabold text-sm underline text-blue-900 hover:text-black">View Venue on Airbnb ↗</a>
+          <span class="font-extrabold text-sm text-red-700 uppercase">Venue is yet to be disclosed</span>
         </div>
       </div>
     </section>
@@ -212,11 +212,11 @@
         Seat limit is locked tighter than a jar of pickles. Grab your spot before it's housefull!
       </p>
 
-      <!-- Dynamic Counter Box -->
+      <!-- Dynamic Counter Box (Set to 0/25) -->
       <div class="bg-red-600 text-white neo-card rounded-xl p-4 text-center">
         <span class="block text-xs uppercase font-black tracking-wider opacity-90">Current Occupancy Status</span>
-        <span id="seatCounterDisplay" class="text-3xl md:text-4xl font-black tracking-tight text-yellow-300">14 / 25 ARE FULL</span>
-        <span class="block text-xs font-bold mt-1">Hurry up, slots disappearing fast! 🏃‍♂️💨</span>
+        <span id="seatCounterDisplay" class="text-3xl md:text-4xl font-black tracking-tight text-yellow-300">0 / 25 ARE FULL</span>
+        <span class="block text-xs font-bold mt-1">Slots open! Claim yours now 🏃‍♂️💨</span>
       </div>
 
       <!-- Cool Countdown Timer -->
@@ -327,6 +327,11 @@
         <div class="w-52 mx-auto bg-slate-100 border-4 border-black rounded-xl overflow-hidden p-1 shadow-md">
           <img src="5821e335-4942-446a-95f9-5d27400fcad6.jpeg" alt="Atharv Srivastava Payment QR" class="w-full h-auto object-cover rounded-lg">
         </div>
+
+        <!-- Added instruction below QR -->
+        <p class="text-xs font-black text-red-600 uppercase mt-2">
+          Please take a screenshot of this QR code to make the payment!
+        </p>
       </div>
 
       <!-- WhatsApp Trigger Button -->
@@ -362,7 +367,7 @@
 
     let selectedFit = fitOptions[0].name;
     let selectedFood = foodOptions[0].name;
-    let totalFilledEntries = 14;
+    let totalFilledEntries = 0; // Set to 0 entries as requested
 
     function renderFits() {
       const grid = document.getElementById('fitGrid');
@@ -427,7 +432,7 @@
                    `📝 *Note:* ${note || "None"}\n\n` +
                    `📅 *Date:* 4th Nov 2026, 4 PM\n` +
                    `🍺 *BYOB Event*\n` +
-                   `📍 *Venue:* https://www.airbnb.co.uk/rooms/1688430031887807696`;
+                   `📍 *Venue:* Yet to be disclosed`;
 
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
       window.open(whatsappUrl, '_blank');

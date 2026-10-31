@@ -102,7 +102,6 @@
       <p class="font-bold text-xs mb-4 text-slate-800">
         Pick your vibe color for the night.
       </p>
-
       <div class="grid grid-cols-2 gap-3" id="fitGrid"></div>
     </section>
 
@@ -117,17 +116,16 @@
       <p class="font-bold text-xs mb-4 text-slate-700">
         Are you rolling with Veg or Non-Veg?
       </p>
-
       <div class="grid grid-cols-2 gap-3" id="foodGrid"></div>
     </section>
 
-    <!-- SECTION 3: The Menu (Segregated with Punchlines) -->
+    <!-- SECTION 3: The Menu -->
     <section class="bg-[#ffb703] neo-card rounded-2xl p-6 text-black space-y-4">
       <div class="bg-black text-white neo-card inline-block px-3 py-1 rounded-full text-xs font-black uppercase">
         The Spread
       </div>
       <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight">
-        DESI KHAAANA & CHAKNA MENU
+        DESI KHAANA & CHAKNA MENU
       </h2>
       <p class="font-bold text-xs text-slate-900 italic">
         "Dieting starts tomorrow. Tonight, we feast like royalty."
@@ -148,12 +146,12 @@
       <!-- Snacks & Street Food -->
       <div class="bg-white neo-card rounded-xl p-4 space-y-2">
         <h3 class="font-black uppercase text-sm text-red-600 border-b-2 border-black pb-1 flex justify-between">
-          <span>pani 🥟 Snacks & Street Food</span>
+          <span>🥟 Snacks & Street Food</span>
           <span class="text-xs text-slate-500">The masala section</span>
         </h3>
         <ul class="font-bold text-xs space-y-1 text-slate-800">
           <li>• Welcome Drinks <span class="text-slate-500 font-normal">— Ice-cold entry kick</span></li>
-          <li>• Bhelpuri <span class="text-slate-500 font-normal">— Shشور-sharaaba & crunch</span></li>
+          <li>• Bhelpuri <span class="text-slate-500 font-normal">— Shor-sharaaba & crunch</span></li>
           <li>• Nachos <span class="text-slate-500 font-normal">— Desi soul, global bowl</span></li>
           <li>• Kurkure Chaat <span class="text-slate-500 font-normal">— Ultimate spicy destruction</span></li>
           <li>• Pani Puri <span class="text-slate-500 font-normal">— Paani kam, maza zyada</span></li>
@@ -202,6 +200,89 @@
       </div>
     </section>
 
+    <!-- NEW SLIDE: Limited Entries & Live Countdown Timer -->
+    <section class="bg-black neo-card rounded-2xl p-6 text-white space-y-4 border-4 border-yellow-400">
+      <div class="bg-[#ffb703] text-black neo-card inline-block px-3 py-1 rounded-full text-xs font-black uppercase">
+        ⚡ Exclusive Access
+      </div>
+      <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-yellow-400">
+        ONLY 25 ENTRIES ALLOWED!
+      </h2>
+      <p class="font-bold text-xs text-slate-300">
+        Seat limit is locked tighter than a jar of pickles. Grab your spot before it's housefull!
+      </p>
+
+      <!-- Dynamic Counter Box -->
+      <div class="bg-red-600 text-white neo-card rounded-xl p-4 text-center">
+        <span class="block text-xs uppercase font-black tracking-wider opacity-90">Current Occupancy Status</span>
+        <span id="seatCounterDisplay" class="text-3xl md:text-4xl font-black tracking-tight text-yellow-300">14 / 25 ARE FULL</span>
+        <span class="block text-xs font-bold mt-1">Hurry up, slots disappearing fast! 🏃‍♂️💨</span>
+      </div>
+
+      <!-- Cool Countdown Timer -->
+      <div class="bg-white text-black neo-card rounded-xl p-4 text-center space-y-2">
+        <h4 class="font-black uppercase text-xs text-slate-600">⏳ Countdown to the Madness</h4>
+        <div id="countdownTimer" class="grid grid-cols-4 gap-2 text-center font-black">
+          <div class="bg-slate-100 p-2 rounded-lg border-2 border-black">
+            <span id="days" class="text-xl md:text-2xl text-red-600 block">00</span>
+            <span class="text-[10px] uppercase text-slate-500">Days</span>
+          </div>
+          <div class="bg-slate-100 p-2 rounded-lg border-2 border-black">
+            <span id="hours" class="text-xl md:text-2xl text-red-600 block">00</span>
+            <span class="text-[10px] uppercase text-slate-500">Hours</span>
+          </div>
+          <div class="bg-slate-100 p-2 rounded-lg border-2 border-black">
+            <span id="mins" class="text-xl md:text-2xl text-red-600 block">00</span>
+            <span class="text-[10px] uppercase text-slate-500">Mins</span>
+          </div>
+          <div class="bg-slate-100 p-2 rounded-lg border-2 border-black">
+            <span id="secs" class="text-xl md:text-2xl text-red-600 block">00</span>
+            <span class="text-[10px] uppercase text-slate-500">Secs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SLIDE: General Rules & Slangs -->
+    <section class="bg-[#ffb703] neo-card rounded-2xl p-6 text-black space-y-4">
+      <div class="bg-black text-white neo-card inline-block px-3 py-1 rounded-full text-xs font-black uppercase">
+        Rulebook 📜
+      </div>
+      <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight">
+        CHILLI RULES & GUIDELINES
+      </h2>
+      <p class="font-bold text-xs text-slate-900 italic">
+        "Thodi tameez, saara mazaa. Follow the code or face the hangover penalty."
+      </p>
+
+      <div class="space-y-3 font-bold text-xs">
+        <div class="bg-white neo-card p-3 rounded-xl space-y-1">
+          <div class="text-red-600 font-black uppercase flex items-center gap-1"><span>🍺</span> BYOB Rule (Bring Your Own Booze)</div>
+          <p class="text-slate-700 font-normal">Apna maal khud laao, doston pe mat girao! Pack your preferred poison because the bar is strictly DIY.</p>
+        </div>
+
+        <div class="bg-white neo-card p-3 rounded-xl space-y-1">
+          <div class="text-red-600 font-black uppercase flex items-center gap-1"><span>🏡</span> BNB House Rules & Cleanliness</div>
+          <p class="text-slate-700 font-normal">BnB apna ghar jaisa hai, iski gaand mat maro! Keep it civic, don't trash the property, respect the place.</p>
+        </div>
+
+        <div class="bg-white neo-card p-3 rounded-xl space-y-1">
+          <div class="text-red-600 font-black uppercase flex items-center gap-1"><span>🎸</span> Bring Your Talents & Games</div>
+          <p class="text-slate-700 font-normal">Board games, cards, mics, guitars, ya koi bhi hidden talent—le aao! Mehfil tumhare bina adhuri hai.</p>
+        </div>
+
+        <div class="bg-white neo-card p-3 rounded-xl space-y-1">
+          <div class="text-red-600 font-black uppercase flex items-center gap-1"><span>🎒</span> Personal Belongings</div>
+          <p class="text-slate-700 font-normal">Apne saaman ke khud malik bano! Phones, wallets, aur gaadi ki chabi sambhal ke rakhna—hum gumshuda items ke zimmedar nahi.</p>
+        </div>
+
+        <div class="bg-white neo-card p-3 rounded-xl space-y-1">
+          <div class="text-red-600 font-black uppercase flex items-center gap-1"><span>🚬</span> Designated Smoking Zone</div>
+          <p class="text-slate-700 font-normal">Dhuan wahi udega jahan BnB ne allow kiya hai! Don't turn indoor rooms into a chimney or alarms will scream.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION 5: Ticket Preview & Payment / WhatsApp Group -->
     <section class="bg-[#e63946] neo-card rounded-2xl p-6 text-white space-y-4">
       <div class="bg-yellow-400 text-black neo-card inline-block px-3 py-1 rounded-full text-xs font-black uppercase">
@@ -234,12 +315,15 @@
         </div>
       </div>
 
-      <!-- QR Code Payment / Group Entry Simulation Box -->
+      <!-- QR Code Payment & WhatsApp Group Box (Entry Fee ₹1000) -->
       <div class="bg-white text-black neo-card rounded-xl p-5 text-center space-y-3">
+        <div class="bg-red-600 text-white font-black text-sm py-1 px-3 rounded-lg inline-block uppercase">
+          Entry Fee: ₹1,000 / Head
+        </div>
         <h3 class="font-black uppercase text-sm">SCAN QR TO PAY & JOIN WHATSAPP GROUP</h3>
-        <p class="text-[11px] font-bold text-slate-600">Scan via any UPI app to settle up. Post-payment, you'll instantly land into the official party WhatsApp group!</p>
+        <p class="text-[11px] font-bold text-slate-600">Scan via any UPI app to pay ₹1,000. Post-payment, you'll instantly land into the official party WhatsApp group!</p>
         
-        <!-- Placeholder QR Box (Replace src with your actual payment QR image link if you want) -->
+        <!-- Placeholder QR Box -->
         <div class="w-40 h-40 mx-auto bg-slate-100 border-4 border-black rounded-xl flex items-center justify-center p-2">
           <div class="text-center font-black text-xs text-red-600 border-2 border-dashed border-black p-4 w-full h-full flex items-center justify-center">
             [YOUR PAYMENT QR CODE IMAGE]
@@ -280,6 +364,7 @@
 
     let selectedFit = fitOptions[0].name;
     let selectedFood = foodOptions[0].name;
+    let totalFilledEntries = 14; // You can change this starting number or connect to backend storage later
 
     function renderFits() {
       const grid = document.getElementById('fitGrid');
@@ -333,7 +418,11 @@
         return;
       }
 
-      const text = `🎟️ *DIWALI PARTY GUEST TICKET* 🎟️\n\n` +
+      // Increment entry count dynamically simulation on action
+      if(totalFilledEntries < 25) totalFilledEntries++;
+      document.getElementById('seatCounterDisplayinnerText = `${totalFilledEntries} / 25 ARE FULL`;
+
+      const text = `🎟️ *DIWALI PARTY GUEST TICKET (PAID ₹1000)* 🎟️\n\n` +
                    `👤 *Name:* ${name}\n` +
                    `✅ *Status:* Haan bhai, im definitely in\n` +
                    `🎨 *Fit Code:* ${selectedFit}\n` +
@@ -346,6 +435,32 @@
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
       window.open(whatsappUrl, '_blank');
     }
+
+    // Live Countdown Timer to Nov 4, 2026, 16:00:00
+    const partyDate = new Date('November 4, 2026 16:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = partyDate - now;
+
+      if (distance < 0) {
+        document.getElementById('countdownTimer').innerHTML = "<div class='col-span-4 text-red-600 font-black'>PARTY HAS STARTED! 🚀</div>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerText = String(days).padStart(2, '0');
+      document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+      document.getElementById('mins').innerText = String(mins).padStart(2, '0');
+      document.getElementById('secs').innerText = String(secs).padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
     renderFits();
     renderFood();

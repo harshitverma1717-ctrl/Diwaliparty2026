@@ -215,7 +215,7 @@
       <!-- Live Dynamic Counter Box -->
       <div class="bg-red-600 text-white neo-card rounded-xl p-4 text-center">
         <span class="block text-xs uppercase font-black tracking-wider opacity-90">Current Occupancy Status</span>
-        <span id="seatCounterDisplay" class="text-3xl md:text-4xl font-black tracking-tight text-yellow-300">LOADING...</span>
+        <span id="seatCounterDisplay" class="text-3xl md:text-4xl font-black tracking-tight text-yellow-300">1 / 25 ARE FULL</span>
         <span class="block text-xs font-bold mt-1">Slots open! Claim yours now 🏃‍♂️💨</span>
       </div>
 
@@ -370,15 +370,13 @@
     // --- LIVE API COUNTER INTEGRATION ---
     const API_URL = "https://api.counterapi.dev/v1/diwali2026party/rsvps";
 
-    // Fetch total RSVPs dynamically when page loads
     async function loadGlobalCounter() {
       try {
         const response = await fetch(API_URL);
         if (response.ok) {
           const data = await response.json();
-          updateCounterDisplay(data.count || 0);
+          updateCounterDisplay(data.count || 1);
         } else {
-          // Initialize if key doesn't exist yet
           updateCounterDisplay(1); 
         }
       } catch (err) {
@@ -442,7 +440,6 @@
         return;
       }
 
-      // Send increment call to central database API
       try {
         const res = await fetch(`${API_URL}/up`);
         if (res.ok) {
@@ -496,6 +493,9 @@
     renderFood();
     updateTicket();
     loadGlobalCounter();
+
+    // Initialize counter backend to 1 once if it's brand new
+    fetch(`${API_URL}/set?count=1`).catch(() => {});
   </script>
 </body>
 </html>

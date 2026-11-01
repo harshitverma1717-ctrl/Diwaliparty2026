@@ -212,10 +212,10 @@
         Seat limit is locked tighter than a jar of pickles. Grab your spot before it's housefull!
       </p>
 
-      <!-- Dynamic Counter Box (Set to 0/25) -->
+      <!-- Live Dynamic Counter Box -->
       <div class="bg-red-600 text-white neo-card rounded-xl p-4 text-center">
         <span class="block text-xs uppercase font-black tracking-wider opacity-90">Current Occupancy Status</span>
-        <span id="seatCounterDisplay" class="text-3xl md:text-4xl font-black tracking-tight text-yellow-300">0 / 25 ARE FULL</span>
+        <span id="seatCounterDisplay" class="text-3xl md:text-4xl font-black tracking-tight text-yellow-300">LOADING...</span>
         <span class="block text-xs font-bold mt-1">Slots open! Claim yours now 🏃‍♂️💨</span>
       </div>
 
@@ -328,7 +328,6 @@
           <img src="5821e335-4942-446a-95f9-5d27400fcad6.jpeg" alt="Atharv Srivastava Payment QR" class="w-full h-auto object-cover rounded-lg">
         </div>
 
-        <!-- Added instruction below QR -->
         <p class="text-xs font-black text-red-600 uppercase mt-2">
           Please take a screenshot of this QR code to make the payment!
         </p>
@@ -367,7 +366,29 @@
 
     let selectedFit = fitOptions[0].name;
     let selectedFood = foodOptions[0].name;
-    let totalFilledEntries = 0; // Set to 0 entries as requested
+
+    // --- LIVE API COUNTER INTEGRATION ---
+    const API_URL = "https://api.counterapi.dev/v1/diwali2026party/rsvps";
+
+    // Fetch total RSVPs dynamically when page loads
+    async function loadGlobalCounter() {
+      try {
+        const response = await fetch(API_URL);
+        if (response.ok) {
+          const data = await response.json();
+          updateCounterDisplay(data.count || 0);
+        } else {
+          // Initialize if key doesn't exist yet
+          updateCounterDisplay(1); 
+        }
+      } catch (err) {
+        updateCounterDisplay(1);
+      }
+    }
+
+    function updateCounterDisplay(count) {
+      document.getElementById('seatCounterDisplay').innerText = `${count} / 25 ARE FULL`;
+    }
 
     function renderFits() {
       const grid = document.getElementById('fitGrid');
@@ -411,7 +432,7 @@
       document.getElementById('ticketNote').innerText = note || "None";
     }
 
-    function sendToWhatsApp() {
+    async function sendToWhatsApp() {
       const name = document.getElementById('guestName').value.trim();
       const note = document.getElementById('guestNote').value.trim();
 
@@ -421,8 +442,16 @@
         return;
       }
 
-      if(totalFilledEntries < 25) totalFilledEntries++;
-      document.getElementById('seatCounterDisplay').innerText = `${totalFilledEntries} / 25 ARE FULL`;
+      // Send increment call to central database API
+      try {
+        const res = await fetch(`${API_URL}/up`);
+        if (res.ok) {
+          const data = await res.json();
+          updateCounterDisplay(data.count);
+        }
+      } catch (e) {
+        console.error("Counter error", e);
+      }
 
       const text = `🎟️ *DIWALI PARTY GUEST TICKET (PAID ₹1000)* 🎟️\n\n` +
                    `👤 *Name:* ${name}\n` +
@@ -466,6 +495,7 @@
     renderFits();
     renderFood();
     updateTicket();
+    loadGlobalCounter();
   </script>
 </body>
 </html>

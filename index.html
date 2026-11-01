@@ -200,24 +200,17 @@
       </div>
     </section>
 
-    <!-- LIMITED ENTRIES & LIVE COUNTDOWN TIMER -->
+    <!-- EXCLUSIVE ACCESS & COUNTDOWN TIMER -->
     <section class="bg-black neo-card rounded-2xl p-6 text-white space-y-4 border-4 border-yellow-400">
       <div class="bg-[#ffb703] text-black neo-card inline-block px-3 py-1 rounded-full text-xs font-black uppercase">
         ⚡ Exclusive Access
       </div>
       <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-yellow-400">
-        ONLY 25 ENTRIES ALLOWED!
+        ONLY 25 ENTRIES AVAILABLE
       </h2>
       <p class="font-bold text-xs text-slate-300">
         Seat limit is locked tighter than a jar of pickles. Grab your spot before it's housefull!
       </p>
-
-      <!-- Live Dynamic Counter Box -->
-      <div class="bg-red-600 text-white neo-card rounded-xl p-4 text-center">
-        <span class="block text-xs uppercase font-black tracking-wider opacity-90">Current Occupancy Status</span>
-        <span id="seatCounterDisplay" class="text-3xl md:text-4xl font-black tracking-tight text-yellow-300">1 / 25 ARE FULL</span>
-        <span class="block text-xs font-bold mt-1">Slots open! Claim yours now 🏃‍♂️💨</span>
-      </div>
 
       <!-- Cool Countdown Timer -->
       <div class="bg-white text-black neo-card rounded-xl p-4 text-center space-y-2">
@@ -367,27 +360,6 @@
     let selectedFit = fitOptions[0].name;
     let selectedFood = foodOptions[0].name;
 
-    // --- LIVE API COUNTER INTEGRATION ---
-    const API_URL = "https://api.counterapi.dev/v1/diwali2026party/rsvps";
-
-    async function loadGlobalCounter() {
-      try {
-        const response = await fetch(API_URL);
-        if (response.ok) {
-          const data = await response.json();
-          updateCounterDisplay(data.count || 1);
-        } else {
-          updateCounterDisplay(1); 
-        }
-      } catch (err) {
-        updateCounterDisplay(1);
-      }
-    }
-
-    function updateCounterDisplay(count) {
-      document.getElementById('seatCounterDisplay').innerText = `${count} / 25 ARE FULL`;
-    }
-
     function renderFits() {
       const grid = document.getElementById('fitGrid');
       grid.innerHTML = fitOptions.map((fit) => `
@@ -430,7 +402,7 @@
       document.getElementById('ticketNote').innerText = note || "None";
     }
 
-    async function sendToWhatsApp() {
+    function sendToWhatsApp() {
       const name = document.getElementById('guestName').value.trim();
       const note = document.getElementById('guestNote').value.trim();
 
@@ -438,16 +410,6 @@
         alert("Please enter your name before sending your ticket!");
         document.getElementById('guestName').focus();
         return;
-      }
-
-      try {
-        const res = await fetch(`${API_URL}/up`);
-        if (res.ok) {
-          const data = await res.json();
-          updateCounterDisplay(data.count);
-        }
-      } catch (e) {
-        console.error("Counter error", e);
       }
 
       const text = `🎟️ *DIWALI PARTY GUEST TICKET (PAID ₹1000)* 🎟️\n\n` +
@@ -492,10 +454,6 @@
     renderFits();
     renderFood();
     updateTicket();
-    loadGlobalCounter();
-
-    // Initialize counter backend to 1 once if it's brand new
-    fetch(`${API_URL}/set?count=1`).catch(() => {});
   </script>
 </body>
 </html>
